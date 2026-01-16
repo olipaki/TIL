@@ -1,0 +1,14 @@
+요청(Request)	내가 원하는 걸 물어보는 것	
+fetch(), requests.get() 같은 함수
+
+
+엔드포인트(URL)	그 기능이 있는 인터넷 주소	
+https://api.weather.com/...
+
+
+파라미터/키	주문 시 필요한 세부 정보나 입장권	
+city=seoul, api_key=12345
+
+
+응답(Response)	서버가 돌려주는 결과값 (주로 JSON 형태)	
+{"temp": 25, "weather": "sunny"}
