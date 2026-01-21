@@ -1,0 +1,35 @@
+# names = [
+#     '강성신', '김수왕', '김아네스', '김진우', '남건우', 
+#     '박세형', '박지훈', '배은하', '사비카', '서현석', 
+#     '이상준', '이상호', '이종혁', '이지선', '이채훈', 
+#     '주현지', '최유리', '하재연', '한다솔', '황희연'
+# ]
+
+# # random.randint(시작, 끝): 시작~끝 사이 정수 1개 (끝 포함)
+# number = random.randint(1, 5)
+# print(f"1~5 사이 난수: {number}")
+
+# # random.choice(리스트): 리스트 원소 중 1개 무작위 반환
+# numbers = [10, 20, 30, 40, 50]
+# picked = random.choice(numbers)
+# print(f"리스트 중 선택: {picked}")
+
+# # random.sample(리스트, 개수): 지정한 개수만큼 무작위 추출
+# samples = random.sample(numbers, 3)
+# print(f"리스트 중 3개 샘플: {samples}")
+
+# ##################################################
+
+
+import random
+names = [
+    '강성신', '김수왕', '김아네스', '김진우', '남건우', 
+    '박세형', '박지훈', '배은하', '사비카', '서현석', 
+    '이상준', '이상호', '이종혁', '이지선', '이채훈', 
+    '주현지', '최유리', '하재연', '한다솔', '황희연'
+]
+names= random.sample(names,len(names))
+all_team = []
+for i in range (5):
+    print(f"():{sample}")
+
