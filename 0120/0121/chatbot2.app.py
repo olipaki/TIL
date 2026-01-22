@@ -11,6 +11,7 @@ URL = "https://api.openai.com/v1/chat/completions"
 # 페이지 설정 (브라우저 탭 이름과 아이콘)
 st.set_page_config(page_title="AI 강사 챗봇", page_icon="🎓")
 
+st.write("연결 테스트 중입니다!") # <-- 이 줄을 추가하고 저장해 보세요.
 st.title("👨‍🏫 친절한 AI 강사님")
 st.caption("OpenAI API와 Streamlit을 이용한 실시간 챗봇입니다.")
 
