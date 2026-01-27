@@ -103,3 +103,10 @@ FROM customer c
 JOIN rental r ON c.customer_id = r.customer_id
 JOIN inventory i ON r.inventory_id = i.inventory_id
 JOIN film f ON i.film_id = f.film_id;
+
+-- PENELOPE 배우가 찍은 영화를 등급별로 묶어서, 
+-- 편수가 5편 이상인 것만 제목순으로 보여줘!"
+
+SELECT title
+FROM 
+WHERE
