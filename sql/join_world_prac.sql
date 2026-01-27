@@ -64,11 +64,6 @@ JOIN film f ON fa.film_id = f.film_id;
 -- 논리: 1번 쿼리에 WHERE 조건만 딱 걸어주면 끝!
 -- 코드: ... WHERE a.first_name = 'PENELOPE';
 
-SELECT f.title
-FROM actor a  --1번 : 배우
-JOIN film_actor fa ON a.actor_id = fa.actor_id
-JOIN film f ON fa.film_id = f.film_id 
-
 SELECT 
     f.title   -- 우리가 최종적으로 보고 싶은 건 '영화 제목'이지!
 FROM actor a  -- 1번 주머니: 배우
