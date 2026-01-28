@@ -108,5 +108,9 @@ JOIN film f ON i.film_id = f.film_id;
 -- 편수가 5편 이상인 것만 제목순으로 보여줘!"
 
 SELECT title
-FROM 
-WHERE
+FROM actor.actor_ID = 
+JOIN film_actor fa ON a.actor_id = fa.actor_id
+JOIN ON
+WHERE 
+
+
