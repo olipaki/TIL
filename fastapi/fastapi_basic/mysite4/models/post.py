@@ -3,6 +3,14 @@
 from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy import String, Text
 from database import Base
+from sqlalchemy.orm import relationship
+
+# 수정
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from .comment import Comment
+
 
 class Post(Base):
     __tablename__ = "posts"
@@ -15,3 +23,7 @@ class Post(Base):
 
     # Text는 길이 제한이 없는 대용량 텍스트 저장에 적합하다.
     content: Mapped[str] = mapped_column(Text, nullable=False)
+
+    comments: Mapped[list["Comment"]] = relationship(
+        "Comment", back_populates="post", cascade="all, delete-orphan"
+    )
