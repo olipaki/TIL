@@ -12,7 +12,10 @@ class ProductResponse(BaseModel):
     id: int
     name: str
     price: int
+
+    model_config = ConfigDict(from_attributes=True)
+
+
+class ProductResponseWithCategory(ProductResponse):
     # category_name을 변환을 시켜서 응답하게 할수도 있습니다.
     category: CategoryResponse
-
-    # model_config = ConfigDict(from_attributes=True)
