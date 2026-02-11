@@ -20,7 +20,9 @@ class DemoPost(Base):
     user_id: Mapped[int] = mapped_column(ForeignKey("users_nplusone.id"))
 
     user: Mapped["DemoUser"] = relationship(back_populates="posts")
-    comments: Mapped[list["DemoComment"]] = relationship(back_populates="post", lazy="select")
+    comments: Mapped[list["DemoComment"]] = relationship(
+        back_populates="post", lazy="select"
+    )
 
 
 class DemoComment(Base):

@@ -24,16 +24,17 @@ class CommentService:
 
     def update_comment(self, db: Session, post_id: int, comment_id: int, content: str):
         with db.begin():
-            comment = comment_repository.find_by_id(db, comment_id)
+            # # 1. comment_id에 해당하는 Comment 가져오기.
+            # comment = comment_repository.find_by_id(db, comment_id)
 
-            if not comment:
-                raise HTTPException(status_code=404, detail="Comment not found")
+            # if not comment:
+            #     raise HTTPException(status_code=404, detail="Comment not found")
 
-            if comment.post_id != post_id:
-                raise HTTPException(
-                    status_code=400, detail="Comment does not belong to this post"
-                )
-
+            # if comment.post_id != post_id:
+            #     raise HTTPException(
+            #         status_code=400, detail="Comment does not belong to this post"
+            #     )
+            comment = self._get_verified_comment(db, post_id, comment_id)
             # 더티 체킹을 통한 수정
             comment.content = content
 
@@ -42,17 +43,31 @@ class CommentService:
 
     def delete_comment(self, db: Session, post_id: int, comment_id: int):
         with db.begin():
-            comment = comment_repository.find_by_id(db, comment_id)
+            # comment = comment_repository.find_by_id(db, comment_id)
 
-            if not comment:
-                raise HTTPException(status_code=404, detail="Comment not found")
+            # if not comment:
+            #     raise HTTPException(status_code=404, detail="Comment not found")
 
-            if comment.post_id != post_id:
-                raise HTTPException(
-                    status_code=400, detail="Comment does not belong to this post"
-                )
+            # if comment.post_id != post_id:
+            #     raise HTTPException(
+            #         status_code=400, detail="Comment does not belong to this post"
+            #     )
+            comment = self._get_verified_comment(db, post_id, comment_id)
 
             comment_repository.delete(db, comment)
+
+    def _get_verified_comment(self, db: Session, post_id: int, comment_id: int):
+        comment = comment_repository.find_by_id(db, comment_id)
+
+        if not comment:
+            raise HTTPException(status_code=404, detail="Comment not found")
+
+        if comment.post_id != post_id:
+            raise HTTPException(
+                status_code=400, detail="Comment does not belong to this post"
+            )
+
+        return comment
 
 
 comment_service = CommentService()
