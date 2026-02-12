@@ -3,14 +3,15 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session, joinedload, selectinload
 
 from database import get_db, engine
-from npluesone.models import DemoPost, DemoComment, DemoUser, Base
-from npluesone.schemas import (
+from nplusone.models import DemoUser, DemoPost, DemoComment, Base
+from nplusone.schemas import (
     PostWithCommentsResponse,
-    PostFullResponse,
     PostWithUserResponse,
+    PostFullResponse,
 )
-# from fastapi_pagination import Page
-# from fastapi_pagination.ext.sqlalchemy import paginate
+
+from fastapi_pagination import Page
+from fastapi_pagination.ext.sqlalchemy import paginate
 
 router = APIRouter(prefix="/nplusone", tags=["N+1 Demo"])
 
@@ -137,49 +138,49 @@ def get_posts_full_optimized(db: Session = Depends(get_db)):
 # # ============================================
 
 
-# @router.get("/posts/paginated/with-user", response_model=Page[PostWithUserResponse])
-# def get_posts_paginated_with_user(db: Session = Depends(get_db)):
-#     """
-#     페이지네이션 + joinedload로 N+1 해결 (Post -> User)
+@router.get("/posts/paginated/with-user", response_model=Page[PostWithUserResponse])
+def get_posts_paginated_with_user(db: Session = Depends(get_db)):
+    """
+    페이지네이션 + joinedload로 N+1 해결 (Post -> User)
 
-#     페이지네이션과 eager loading을 함께 사용하여
-#     효율적으로 데이터를 가져옵니다.
+    페이지네이션과 eager loading을 함께 사용하여
+    효율적으로 데이터를 가져옵니다.
 
-#     쿼리 수: 1개 (JOIN)
-#     """
-#     stmt = select(DemoPost).options(joinedload(DemoPost.user))
-#     return paginate(db, stmt)
-
-
-# @router.get(
-#     "/posts/paginated/with-comments",
-#     response_model=Page[PostWithCommentsResponse],
-# )
-# def get_posts_paginated_with_comments(db: Session = Depends(get_db)):
-#     """
-#     페이지네이션 + selectinload로 N+1 해결 (Post -> Comments)
-
-#     페이지네이션과 eager loading을 함께 사용합니다.
-
-#     쿼리 수: 2개 (Posts 1번 + Comments IN 절 1번)
-#     """
-#     stmt = select(DemoPost).options(selectinload(DemoPost.comments))
-#     return paginate(db, stmt)
+    쿼리 수: 1개 (JOIN)
+    """
+    stmt = select(DemoPost).options(joinedload(DemoPost.user))
+    return paginate(db, stmt)
 
 
-# @router.get("/posts/paginated/full", response_model=Page[PostFullResponse])
-# def get_posts_paginated_full(db: Session = Depends(get_db)):
-#     """
-#     페이지네이션 + joinedload + selectinload 조합 (Post -> User + Comments)
+@router.get(
+    "/posts/paginated/with-comments",
+    response_model=Page[PostWithCommentsResponse],
+)
+def get_posts_paginated_with_comments(db: Session = Depends(get_db)):
+    """
+    페이지네이션 + selectinload로 N+1 해결 (Post -> Comments)
 
-#     페이지네이션과 함께 최적화된 eager loading 적용
+    페이지네이션과 eager loading을 함께 사용합니다.
 
-#     쿼리 수: 2개 (Post+User JOIN 1번 + Comments IN 절 1번)
-#     """
-#     stmt = select(DemoPost).options(
-#         joinedload(DemoPost.user), selectinload(DemoPost.comments)
-#     )
-#     return paginate(db, stmt)
+    쿼리 수: 2개 (Posts 1번 + Comments IN 절 1번)
+    """
+    stmt = select(DemoPost).options(selectinload(DemoPost.comments))
+    return paginate(db, stmt)
+
+
+@router.get("/posts/paginated/full", response_model=Page[PostFullResponse])
+def get_posts_paginated_full(db: Session = Depends(get_db)):
+    """
+    페이지네이션 + joinedload + selectinload 조합 (Post -> User + Comments)
+
+    페이지네이션과 함께 최적화된 eager loading 적용
+
+    쿼리 수: 2개 (Post+User JOIN 1번 + Comments IN 절 1번)
+    """
+    stmt = select(DemoPost).options(
+        joinedload(DemoPost.user), selectinload(DemoPost.comments)
+    )
+    return paginate(db, stmt)
 
 
 # ============================================

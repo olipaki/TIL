@@ -70,8 +70,43 @@ class AuthService:
 
     def _create_access_token(self, user_id: int) -> str:
         expire = datetime.now(timezone.utc) + timedelta(minutes=EXPIRE_MINUTES)
-        payload = {"sub": str(user_id), "exp": expire}
+        payload = {
+            "sub": str(user_id),
+            "exp": expire,
+        }
         return jwt.encode(payload, SECRET_KEY, algorithm=ALGORITHM)
+
+    # services/auth_service.py
+
+    def get_current_user(self, db: Session, token: str) -> User:
+        try:
+            payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+            user_id: int = int(payload.get("sub"))
+
+            if user_id is None:
+                raise HTTPException(
+                    status_code=status.HTTP_401_UNAUTHORIZED,
+                    detail="유효하지 않은 토큰입니다.",
+                )
+        except jwt.ExpiredSignatureError:
+            raise HTTPException(
+                status_code=status.HTTP_401_UNAUTHORIZED,
+                detail="토큰이 만료되었습니다.",
+            )
+        except jwt.InvalidTokenError:
+            raise HTTPException(
+                status_code=status.HTTP_401_UNAUTHORIZED,
+                detail="유효하지 않은 토큰입니다.",
+            )
+
+        user = user_repository.find_by_id(db, user_id)
+        if not user:
+            raise HTTPException(
+                status_code=status.HTTP_401_UNAUTHORIZED,
+                detail="사용자를 찾을 수 없습니다.",
+            )
+
+        return user
 
 
 auth_service = AuthService()

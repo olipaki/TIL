@@ -10,10 +10,11 @@ if TYPE_CHECKING:
     from .post import Post
     from .tag import Tag
 
+
 class PostTag(Base):
     __tablename__ = "post_tags"
     id: Mapped[int] = mapped_column(primary_key=True)
-    
+
     # 각각 Post와 Tag를 참조하는 외래키
     post_id: Mapped[int] = mapped_column(ForeignKey("posts.id"))
     tag_id: Mapped[int] = mapped_column(ForeignKey("tags.id"))
