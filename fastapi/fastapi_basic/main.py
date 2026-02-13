@@ -9,6 +9,8 @@ from mysite4.routers.auth_router import router as auth_router
 from mysite4.routers.user_router import router as user_router
 from mysite4.routers.post2_router import router as post2_router
 from nplusone.router import router as nplusone_router
+from mysite4.routers.sse_router import router as sse_router
+from mysite4.routers.async_post_router import router as async_post_router
 
 from database import engine
 from mysite4 import models
@@ -33,6 +35,8 @@ app.include_router(auth_router)
 app.include_router(user_router)
 app.include_router(post2_router)
 app.include_router(nplusone_router)
+app.include_router(sse_router)
+app.include_router(async_post_router)
 
 
 @app.get("/")
