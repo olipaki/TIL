@@ -16,11 +16,9 @@ from database import engine
 from mysite4 import models
 from fastapi_pagination import add_pagination
 
-# 기존 테이블 지우기
-# models.Base.metadata.drop_all(bind=engine)
-
 # 정의된 모델들을 기반으로 DB에 테이블을 생성한다.
-models.Base.metadata.create_all(bind=engine)
+# alembic으로 대체됨.
+# models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
