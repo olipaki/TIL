@@ -1,7 +1,17 @@
-div{
-  width: 100px;
-  height: 100px;
+.flex-container {
+  display: flex;
+  width: 600px;
+  border: 2px solid #333;
+  padding: 10px;
+}
+
+.flex-item {
   padding: 20px;
-  margin: 20px;
-  border: 1px solid;
+  background-color: lightgray;
+  margin: 5px;
+}
+
+.item-grow {
+  flex-grow: 2; /* 다른 아이템보다 2배 더 많은 공간을 차지 */
+  background-color: lightseagreen;
 }
