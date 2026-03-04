@@ -5,12 +5,7 @@ for (let i = 0; i <= 4; i++) {
   console.log(i);
 }
 
-// 1. 선언식: function 
-function greet(name) {
-    console.log(`안녕하세요, ${name}님!`);
-
 console.log("-----------------");
-
 
 // 2번. 변수 N에 6을 할당한다. for 반복문을 활용해서 1부터 N까지의 숫자를 출력한다.
 console.log("2번 문제");
