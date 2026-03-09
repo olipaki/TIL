@@ -37,6 +37,7 @@ function App() {
       <div className="haha" id="haha" onClick={console.log("haha")}>
         안녕하세요
       </div>
+      <div>안녕하세요2</div>
       <label htmlFor=""></label>
       <input type="text" />
       <img src="" alt="" />

@@ -1,7 +1,9 @@
 import React from "react";
 import LoginStatus from "./LoginStatus";
 import AdminLink from "./AdminLink";
-import TodoItem from "./TodoItem";
+import TodoItem from "./Todoitem";
+import Numbers from "./Numbers";
+import Students from "./Students";
 
 const RenderingBase = () => {
   return (
@@ -19,6 +21,10 @@ const RenderingBase = () => {
       <AdminLink isAdmin={false} />
       <TodoItem text="내용" isDone={true} />
       <TodoItem text="내용" isDone={false} />
+      <br />
+      <Numbers />
+      <br />
+      <Students />
     </>
   );
 };

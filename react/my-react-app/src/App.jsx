@@ -2,49 +2,36 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
-import Article from "./components/component_prac/Article";
+import styles from "./App.module.css";
 
+import Base from "./Base";
+// import JsxBase from "./components/jsx_prac/JsxBase";
+import PropsBase from "./components/props_prac/PropsBase";
+import ChildrenBase from "./components/children_prac/ChildrenBase";
+// import RenderingBase from "./components/rendering_prac/RenderingBase";
+import RenderingProb from "./components/rendering_prob/RenderingProb";
 function App() {
-  const name = "홍길동";
-
-  const hello = `나의 이름은 ${name}이야.`;
-
-  // jsx 내부에 변수를 집어넣을 수 있음.
-  const helloJsx = <div>나의 이름은 {name}이야.</div>;
-  const a = 10;
-  const b = 20;
-  const divStyle = {
-    color: "blue",
-    fontSize: "64px",
-  };
-  return <Article />;
-
   return (
     <>
-      <div
-        style={{
-          color: "red",
-          fontSize: "32px",
-        }}
-      >
-        스타일 div
+      {/* <Base /> */}
+      {/* <JsxBase /> */}
+      {/* <PropsBase/> */}
+      {/* <ChildrenBase /> */}
+      {/* CSS Practice
+      <div className={styles.container}>
+        <h1 className={styles.title}>Hello World!</h1>
+        <div className={`${styles.container} ${styles.title}`}>내용</div>
+        <div className="text-3xl font-bold text-red-500">Hello World!</div>
       </div>
-      <div style={divStyle}>스타일 div2</div>
-      {helloJsx}
-      {/* 이것이 주석이에요. */}
-      <div>나의 이름은 {name}이야!</div>
-      <div>1 + 2 = {1 + 2}</div>
-
-      <div>더 큰 수 : {a > b ? a : b}</div>
-
-      <div className="haha" id="haha" onClick={console.log("haha")}>
-        안녕하세요
+      <div className="flex justify-between">
+        <div>1</div>
+        <div>2</div>
       </div>
-      <div>안녕하세요2</div>
-      <label htmlFor=""></label>
-      <input type="text" />
-      <img src="" alt="" />
-      <h1></h1>
+      <button className="bg-blue-500 py-2 hover:bg-red-700 text-white font-bold  px-4 rounded">
+        버튼
+      </button> */}
+      {/* <RenderingBase /> */}
+      <RenderingProb />
     </>
   );
 }
