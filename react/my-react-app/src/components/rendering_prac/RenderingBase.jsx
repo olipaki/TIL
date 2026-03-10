@@ -2,7 +2,8 @@ import React from "react";
 import LoginStatus from "./LoginStatus";
 import AdminLink from "./AdminLink";
 import TodoItem from "./Todoitem";
-import Numbers from "./Numbers";
+
+import Numbers from "./Number";
 import Students from "./Students";
 
 const RenderingBase = () => {

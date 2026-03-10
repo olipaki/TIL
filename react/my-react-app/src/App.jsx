@@ -5,11 +5,16 @@ import "./App.css";
 import styles from "./App.module.css";
 
 import Base from "./Base";
-// import JsxBase from "./components/jsx_prac/JsxBase";
+import JsxBase from "./components/jsx_prac/JsxBase";
 import PropsBase from "./components/props_prac/PropsBase";
 import ChildrenBase from "./components/children_prac/ChildrenBase";
-// import RenderingBase from "./components/rendering_prac/RenderingBase";
+import RenderingBase from "./components/rendering_prac/RenderingBase";
 import RenderingProb from "./components/rendering_prob/RenderingProb";
+import EventBase from "./components/event_prac/EventBase";
+import StateBase from "./components/state_prac/StateBase";
+import StateProb from "./components/state_prob/StateProb";
+import StateAdvBase from "./components/state_adv_prac/stateAdvBase";
+
 function App() {
   return (
     <>
