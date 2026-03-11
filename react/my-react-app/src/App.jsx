@@ -14,6 +14,7 @@ import EventBase from "./components/event_prac/EventBase";
 import StateBase from "./components/state_prac/StateBase";
 import StateProb from "./components/state_prob/StateProb";
 import StateAdvBase from "./components/state_adv_prac/stateAdvBase";
+import StateAdvProb from "./components/state_adv_prob/StateAdvProb";
 
 function App() {
   return (
@@ -36,6 +37,11 @@ function App() {
         버튼
       </button> */}
       {/* <RenderingBase /> */}
+      {/* <RenderingProb /> */}
+      {/* <EventBase /> */}
+      {/* <StateBase /> */}
+      {/* <StateProb /> */}
+      {/* <StateAdvBase /> */}
       <RenderingProb />
     </>
   );
