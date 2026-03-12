@@ -15,6 +15,8 @@ import StateBase from "./components/state_prac/StateBase";
 import StateProb from "./components/state_prob/StateProb";
 import StateAdvBase from "./components/state_adv_prac/stateAdvBase";
 import StateAdvProb from "./components/state_adv_prob/StateAdvProb";
+import { UseEffectBase } from "./components/useeffect_prac/UseEffectBase";
+import UseEffectProb from "./components/useeffect_prob/UseEffectProb";
 
 function App() {
   return (
@@ -42,7 +44,8 @@ function App() {
       {/* <StateBase /> */}
       {/* <StateProb /> */}
       {/* <StateAdvBase /> */}
-      <RenderingProb />
+      {/* <RenderingProb /> */}
+      <UseEffectProb />
     </>
   );
 }
