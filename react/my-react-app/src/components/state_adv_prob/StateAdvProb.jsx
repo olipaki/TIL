@@ -4,6 +4,8 @@ import LoginForm from "./LoginForm";
 import LikeFood from "./LikeFood";
 import LikeFood4 from "./LikeFood4";
 import LikeFood5 from "./LikeFood5";
+import MessageContainer from "./MessageContainer";
+import LikeFoodContainer from "./LikeFoodContainer";
 
 const StateAdvProb = () => {
   return (
@@ -14,6 +16,8 @@ const StateAdvProb = () => {
       <LikeFood />
       <LikeFood4 />
       <LikeFood5 />
+      <MessageContainer />
+      <LikeFoodContainer />
     </>
   );
 };

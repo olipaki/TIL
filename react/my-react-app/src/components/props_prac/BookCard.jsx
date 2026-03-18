@@ -1,6 +1,7 @@
 import React from "react";
 
 const BookCard = ({ book }) => {
+  
   return (
     <div className="card">
       <div>제목 : {book.title}</div>

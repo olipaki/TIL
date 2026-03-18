@@ -3,27 +3,26 @@ import WeatherStatus from "./WeatherStatus";
 import NoticeBoard from "./NoticeBoard";
 import StudentList from "./StudentList";
 import TodoList from "./TodoList";
-import StateBase from "../state_prac/StateBase";
+import MemberList from "./MemberList";
 const RenderingProb = () => {
   return (
-    <div className="flex flex-col">
+    <>
       <div>RenderingProb</div>
       <WeatherStatus />
       <WeatherStatus isRaining={true} temperature={10} />
-      <hr />
+      <br />
       <NoticeBoard />
       <NoticeBoard
         hasNewMessage={false}
         isMember={false}
         errorMessage="에러임"
       />
-      <hr />
+      <br />
       <StudentList />
-      <hr />
+      <br />
       <TodoList />
-      <hr />
-      <StateBase />
-    </div>
+      <MemberList />
+    </>
   );
 };
 

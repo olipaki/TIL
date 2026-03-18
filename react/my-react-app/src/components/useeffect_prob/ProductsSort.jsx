@@ -2,7 +2,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 const ProductsSort = () => {
-  const [product, setProducts] = useState([]);
+  const [products, setProducts] = useState([]);
+
   const [options, setOptions] = useState({
     sortBy: "price",
     order: "asc",
@@ -17,6 +18,10 @@ const ProductsSort = () => {
       );
       //   console.log(response.data);
       const data = response.data;
+
+      // 이렇게 프론트에서 sort / filter를 하게 되면 database에 있는 모든 데이터에 대한 것이 아닙니다.
+      //   const sortedProducts = data.products.sort((a, b) => a.id - b.id);
+
       setProducts(data.products);
     };
 
@@ -95,7 +100,7 @@ const ProductsSort = () => {
         })}
       </div>
       <div>
-        {product.map((product) => {
+        {products.map((product) => {
           return (
             <div className="card" key={product.id}>
               <div>id : {product.id}</div>

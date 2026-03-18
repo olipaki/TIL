@@ -6,7 +6,7 @@ import Hello from "./Hello";
 import ProfileCard from "./ProfileCard";
 import MenuBoard from "./MenuBoard";
 
-// import MySite from "./mysite/MySite";
+import MySite from "./mysite/MySite";
 
 const JsxBase = () => {
   return (

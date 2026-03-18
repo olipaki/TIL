@@ -1,6 +1,7 @@
 import React from "react";
 
 const MenuList = () => {
+    
   const menu = [
     { name: "떡볶이", price: 4000 },
     { name: "순대", price: 3500 },

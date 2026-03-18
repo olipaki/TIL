@@ -1,7 +1,9 @@
 import React from "react";
-import Like from "./Like";
+import Like from "./LIke";
 import TextLength from "./TextLength";
 import BgChanger from "./BgChanger";
+import LoginForm from "./LoginForm";
+import PasswordCheck from "./PasswordCheck";
 
 const StateProb = () => {
   return (
@@ -10,6 +12,8 @@ const StateProb = () => {
       <Like />
       <TextLength />
       <BgChanger />
+      <LoginForm />
+      <PasswordCheck />
     </>
   );
 };

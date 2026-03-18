@@ -6,8 +6,8 @@ const BgChanger = () => {
   const [isWhite, setIsWhite] = useState(true);
 
   const [color, setColor] = useState("white");
-  //   if white -> blue
-  //   if blue -> whilte
+//   if white -> blue
+//   if blue -> whilte
 
   return (
     <div className={`card ${isWhite ? "bg-red-200" : "bg-blue-200"}`}>

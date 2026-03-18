@@ -1,16 +1,3 @@
-// import { useState } from "react"; //여기서 직접 불러오기
-
-// const LikeButton = () => {
-//   const [count, setCount] = useState(0);
-//   return (
-//     <div style={{ padding: "20px", border: "1px solid #ddd" }}>
-//       <button onClick={() => setCount(count + 1)}> 좋아요 {count}</button>
-//     </div>
-//   );
-// };
-// export default LikeButton;
-//////////////////////////////////////////////////////
-
 import React from "react";
 import { useState } from "react";
 

@@ -4,7 +4,7 @@ const SubmitExample = () => {
 
     // FormData : form 요소의 입력 값을 쉽게 가져올 수 있는 객체
     const formData = new FormData(event.target);
-
+    
     // formData.get("name속성값")으로 각 입력 값을 가져온다
     console.log(`이메일 입력 값: ${formData.get("email")}`);
     console.log(`비밀번호 입력 값: ${formData.get("password")}`);

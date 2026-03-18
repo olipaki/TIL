@@ -1,12 +1,13 @@
-// WeatherStatus.jsx
-const WeatherStatus = ({ isRaining, temperature }) => {
-  return (
-    <div style={{ border: "1px solid blue", margin: "10px", padding: "10p" }}>
-      <h3>오늘의 날씨</h3>
-      <p>{isRaining ? "우산을 챙기세요!" : "날씨가 좋습니다!"}</p>
+import React from "react";
 
-      <p>{temperature >= 30 ? "더운날씨입니다" : "적당한 날씨입니다"}</p>
+const WeatherStatus = ({ isRaining = false, temperature = 35 }) => {
+  return (
+    <div className="card">
+      <div>WeatherStatus</div>
+      <p>{isRaining ? "우산챙겨" : "날씨좋아"}</p>
+      <p>{temperature >= 30 ? "더운 날씨" : "적당"}</p>
     </div>
   );
 };
+
 export default WeatherStatus;

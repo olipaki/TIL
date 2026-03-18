@@ -10,7 +10,8 @@ const UserList = () => {
     const fetchUsers = async () => {
       try {
         const response = await axios.get(
-          "https://jsasdonplaceholder.typicode.com/users",
+          "https://jsonplaceholder.typicode.com/users",
+        //   "https://jsonplaceholder.typicode.com/1234s", // 오타, 실패
         );
         setUsers(response.data);
       } catch (err) {

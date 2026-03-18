@@ -7,7 +7,7 @@ const Counter = () => {
   // => user와 interaction을 통해 데이터를 변화시키는 과정.
 
   let number = 0;
-
+  
   const handleClick = () => {
     number = number + 1;
     console.log(number);

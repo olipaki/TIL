@@ -50,8 +50,11 @@ const TodoListAdv = () => {
       <ul>
         {todos.map((todo) => {
           return (
-            <li key={todo.id} onClick={() => handleToggle(todo.id)}>
-              <span className={todo.done ? "line-through" : ""}>
+            <li key={todo.id}>
+              <span
+                onClick={() => handleToggle(todo.id)}
+                className={todo.done ? "line-through" : ""}
+              >
                 {todo.text}
               </span>
               <button onClick={() => handleDelete(todo.id)} className="button">

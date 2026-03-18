@@ -1,3 +1,5 @@
+import React from "react";
+
 const Card2 = ({ title, children }) => {
   return (
     <div

@@ -26,7 +26,7 @@ const MovieList = () => {
 
         const response = await axios.get(url, config);
 
-        console.log(response.data);
+        console.log(response.data.results);
 
         const movies = response.data.results;
 
