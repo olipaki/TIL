@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>서비스 소개서 — 지원사업 제출용</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: #fff;
+  color: #1A1A1A;
+  width: 960px;
+  margin: 0 auto;
+  padding: 36px 40px 48px;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* ── 최상단 헤더 ── */
+.top-header {
+  background: #0B1C3D;
+  border-radius: 10px;
+  padding: 22px 28px;
+  margin-bottom: 20px;
+  display: flex; align-items: flex-start;
+  justify-content: space-between; gap: 20px;
+}
+.th-left {}
+.th-badge {
+  display:inline-flex; align-items:center; gap:4px;
+  background:rgba(93,202,165,0.18); border:1px solid rgba(93,202,165,0.35);
+  color:#5DCAA5; font-size:10px; font-weight:700;
+  padding:3px 10px; border-radius:10px; margin-bottom:8px;
+  letter-spacing:0.05em;
+}
+.th-name { font-size:22px; font-weight:900; color:#fff; line-height:1.2; margin-bottom:4px; }
+.th-name span { color:#5DCAA5; }
+.th-summary { font-size:12px; color:rgba(255,255,255,0.65); line-height:1.6; max-width:520px; }
+.th-right {
+  flex-shrink:0; text-align:right;
+}
+.th-meta-row { display:flex; gap:6px; justify-content:flex-end; margin-bottom:6px; }
+.th-meta-tag {
+  font-size:10px; font-weight:700; padding:3px 9px; border-radius:4px;
+}
+.th-meta-tag.blue  { background:#EAF2FB; color:#1C5FA8; }
+.th-meta-tag.teal  { background:rgba(93,202,165,0.15); color:#5DCAA5; border:1px solid rgba(93,202,165,0.25); }
+.th-meta-tag.amber { background:#FAEEDA; color:#C27B00; }
+.th-current-task {
+  background:rgba(255,255,255,0.07);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:6px; padding:8px 12px;
+  font-size:10px; color:rgba(255,255,255,0.6); text-align:left;
+  margin-top:6px;
+}
+.th-current-task strong { color:#5DCAA5; display:block; font-size:11px; margin-bottom:2px; }
+
+/* ── 섹션 공통 ── */
+.sec {
+  margin-bottom: 18px;
+}
+.sec-title {
+  display: flex; align-items: center; gap: 8px;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1.5px solid #0B1C3D;
+}
+.sec-num {
+  background: #0B1C3D; color: #fff;
+  font-size: 10px; font-weight: 700;
+  padding: 2px 9px; border-radius: 3px;
+  letter-spacing: 0.06em; flex-shrink:0;
+}
+.sec-label { font-size: 14px; font-weight: 900; color: #0B1C3D; }
+
+/* ── 2단 그리드 ── */
+.two-col { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.three-col { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+.four-col { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+
+/* ── 카드 기본 ── */
+.card {
+  border:1px solid #E0DED6; border-radius:8px; padding:14px 16px;
+  background:#fff;
+}
+.card-dark { background:#0B1C3D; border-color:#0B1C3D; border-radius:8px; padding:14px 16px; }
+.card-blue { background:#EAF2FB; border:1px solid #B5D4F4; border-radius:8px; padding:14px 16px; }
+.card-teal { background:#E1F5EE; border:1px solid #9FE1CB; border-radius:8px; padding:14px 16px; }
+.card-accent { background:#FFF0EA; border:1px solid #F5C4B3; border-radius:8px; padding:14px 16px; }
+
+.card-header {
+  font-size:11px; font-weight:700; margin-bottom:8px;
+  display:flex; align-items:center; gap:6px;
+}
+.card-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+.cd-blue { background:#1C5FA8; }
+.cd-teal { background:#0D7B6C; }
+.cd-amber { background:#C27B00; }
+.cd-accent { background:#E85D24; }
+.cd-navy { background:#0B1C3D; }
+.cd-purple { background:#6B3FA0; }
+
+/* ── 인라인 텍스트 ── */
+.body-text { font-size:12px; color:#3D3D3A; line-height:1.7; }
+.body-text strong { color:#0B1C3D; font-weight:700; }
+.body-text .hl-blue   { color:#1C5FA8; font-weight:700; }
+.body-text .hl-teal   { color:#0D7B6C; font-weight:700; }
+.body-text .hl-accent { color:#E85D24; font-weight:700; }
+
+/* ── 태그 칩 ── */
+.chip-wrap { display:flex; flex-wrap:wrap; gap:4px; margin-top:6px; }
+.chip {
+  font-size:10px; font-weight:600; padding:2px 8px; border-radius:10px; border:1px solid;
+}
+.chip.blue   { background:#EAF2FB; border-color:#B5D4F4; color:#1C5FA8; }
+.chip.teal   { background:#E1F5EE; border-color:#9FE1CB; color:#0D7B6C; }
+.chip.amber  { background:#FAEEDA; border-color:#F5D88A; color:#C27B00; }
+.chip.accent { background:#FFF0EA; border-color:#F5C4B3; color:#E85D24; }
+.chip.gray   { background:#F5F4F0; border-color:#E0DED6; color:#6B6966; }
+.chip.purple { background:#F3EFFE; border-color:#C9B3F0; color:#6B3FA0; }
+
+/* ── 리스트 ── */
+.dot-list { list-style:none; }
+.dot-list li {
+  font-size:11px; color:#3D3D3A; padding:4px 0;
+  border-bottom:1px solid #F0EEE8; display:flex; gap:6px; line-height:1.5;
+}
+.dot-list li:last-child { border-bottom:none; }
+.dot-list li::before { content:'·'; color:#C8C6BE; flex-shrink:0; }
+.dot-list li strong { color:#0B1C3D; font-weight:700; }
+
+/* ── 1. 서비스 개요 ── */
+.overview-flow {
+  display:flex; align-items:center; gap:0; margin-top:8px;
+}
+.of-step {
+  flex:1; text-align:center; padding:10px 6px;
+  border:1.5px solid #B5D4F4; border-radius:7px;
+  background:#EAF2FB;
+}
+.of-step.accent-step { background:#FFF0EA; border-color:#F5C4B3; }
+.of-step.result-step { background:#E1F5EE; border-color:#9FE1CB; }
+.of-icon { font-size:18px; margin-bottom:4px; }
+.of-title { font-size:10px; font-weight:700; color:#0B1C3D; line-height:1.3; }
+.of-sub { font-size:9px; color:#6B6966; margin-top:2px; line-height:1.3; }
+.of-arrow { color:#C8C6BE; font-size:18px; flex-shrink:0; padding:0 3px; }
+
+/* ── 2. 주요기능 ── */
+.func-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
+.func-card {
+  border:1px solid #E0DED6; border-radius:7px; padding:12px;
+}
+.func-icon { font-size:16px; margin-bottom:6px; }
+.func-title { font-size:11px; font-weight:700; color:#0B1C3D; margin-bottom:3px; }
+.func-desc { font-size:10px; color:#6B6966; line-height:1.5; }
+.func-badge {
+  display:inline-block; margin-top:5px;
+  font-size:9px; font-weight:700; padding:1px 7px; border-radius:10px;
+}
+
+/* ── 3. 차별성 비교표 ── */
+.diff-table { width:100%; border-collapse:collapse; font-size:11px; }
+.diff-table thead tr { background:#0B1C3D; }
+.diff-table thead th {
+  color:rgba(255,255,255,0.7); font-size:10px; font-weight:700;
+  padding:8px 10px; text-align:center;
+  border-right:1px solid rgba(255,255,255,0.08);
+}
+.diff-table thead th:first-child { text-align:left; }
+.diff-table thead th.hl { background:#1C5FA8; color:#fff; }
+.diff-table tbody tr { border-bottom:1px solid #F0EEE8; }
+.diff-table tbody tr:nth-child(even) { background:#FAFAF8; }
+.diff-table tbody td { padding:8px 10px; color:#3D3D3A; }
+.diff-table tbody td:first-child { font-weight:600; color:#0B1C3D; font-size:11px; }
+.diff-table tbody td:not(:first-child) { text-align:center; }
+.ck { color:#0D7B6C; font-size:14px; font-weight:700; }
+.cr { color:#C8C6BE; font-size:14px; }
+.cp { color:#C27B00; font-size:12px; }
+
+/* ── 4. 시장 파급효과 ── */
+.impact-cols { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.impact-card {
+  border-radius:7px; padding:12px 14px; border:1px solid;
+}
+.impact-num { font-size:24px; font-weight:900; line-height:1.1; margin-bottom:2px; }
+.impact-label { font-size:11px; font-weight:500; margin-bottom:5px; }
+.impact-desc { font-size:10px; color:#6B6966; line-height:1.5; }
+
+/* ── 5. 기대효과 ── */
+.effect-row { display:flex; flex-direction:column; gap:6px; }
+.effect-item {
+  display:flex; gap:10px; align-items:flex-start;
+  padding:8px 10px; border-radius:6px; border:1px solid;
+}
+.eff-num {
+  width:20px; height:20px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-size:10px; font-weight:700; flex-shrink:0; margin-top:1px;
+}
+.eff-text { font-size:11px; color:#3D3D3A; line-height:1.5; }
+.eff-text strong { font-weight:700; }
+
+/* ── 6. 수익모델 ── */
+.rev-cols { display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; }
+.rev-card {
+  border-radius:7px; padding:12px 14px; border:1.5px solid;
+}
+.rev-tag {
+  font-size:9px; font-weight:700; padding:2px 7px; border-radius:10px;
+  display:inline-block; margin-bottom:7px;
+}
+.rev-title { font-size:13px; font-weight:700; margin-bottom:3px; }
+.rev-price { font-size:18px; font-weight:900; margin-bottom:3px; }
+.rev-desc { font-size:10px; color:#6B6966; line-height:1.4; }
+
+/* ── 7. 고객 프로파일 ── */
+.customer-wrap { display:grid; grid-template-columns:1.2fr 1fr; gap:10px; }
+.cust-profile {
+  border:1px solid #E0DED6; border-radius:8px; overflow:hidden;
+}
+.cust-profile-header {
+  background:#0B1C3D; color:#fff;
+  padding:8px 14px; font-size:11px; font-weight:700;
+}
+.cust-profile-body { padding:12px 14px; }
+.cust-row {
+  display:flex; gap:8px; margin-bottom:7px; align-items:flex-start;
+}
+.cust-row:last-child { margin-bottom:0; }
+.cust-key {
+  font-size:10px; font-weight:700; color:#6B6966;
+  width:60px; flex-shrink:0; margin-top:1px;
+}
+.cust-val { font-size:11px; color:#3D3D3A; line-height:1.5; }
+.cust-val strong { color:#0B1C3D; font-weight:700; }
+.market-box {
+  background:#0B1C3D; border-radius:8px; padding:16px;
+  color:#fff; display:flex; flex-direction:column; gap:8px;
+}
+.mbox-title { font-size:11px; font-weight:700; color:rgba(255,255,255,0.5); margin-bottom:2px; }
+.mbox-num { font-size:26px; font-weight:900; color:#5DCAA5; line-height:1; margin-bottom:3px; }
+.mbox-desc { font-size:10px; color:rgba(255,255,255,0.6); line-height:1.5; }
+.mbox-divider { border:none; border-top:1px solid rgba(255,255,255,0.08); }
+
+/* ── 8. 경쟁상황 ── */
+.compete-wrap { display:grid; grid-template-columns:2fr 1fr; gap:10px; }
+
+/* ── 9. 판매전략 ── */
+.sales-steps {
+  display:flex; flex-direction:column; gap:0;
+}
+.sales-step {
+  display:flex; gap:10px; align-items:stretch;
+}
+.ss-line {
+  display:flex; flex-direction:column; align-items:center; flex-shrink:0; width:24px;
+}
+.ss-dot {
+  width:12px; height:12px; border-radius:50%; flex-shrink:0; margin-top:10px;
+}
+.ss-connector { width:2px; flex:1; margin-top:3px; }
+.sales-step:last-child .ss-connector { display:none; }
+.ss-body {
+  flex:1; padding:9px 12px; border-radius:6px;
+  margin-bottom:6px; border:1px solid;
+}
+.ss-period { font-size:9px; font-weight:700; padding:1px 7px; border-radius:10px; display:inline-block; margin-bottom:4px; }
+.ss-title { font-size:12px; font-weight:700; color:#0B1C3D; margin-bottom:3px; }
+.ss-desc { font-size:10px; color:#6B6966; line-height:1.4; }
+
+/* ── 10. 팀 구성 ── */
+.team-wrap { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
+.team-card {
+  border:1px solid #E0DED6; border-radius:8px; padding:12px 14px; text-align:center;
+}
+.team-avatar {
+  width:44px; height:44px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-size:16px; font-weight:700; color:#fff;
+  margin:0 auto 8px;
+}
+.team-name { font-size:12px; font-weight:700; color:#0B1C3D; margin-bottom:2px; }
+.team-role { font-size:10px; font-weight:700; padding:2px 8px; border-radius:10px; display:inline-block; margin-bottom:6px; }
+.team-items { list-style:none; text-align:left; }
+.team-items li { font-size:10px; color:#6B6966; padding:2px 0; border-bottom:1px solid #F5F4F0; }
+.team-items li:last-child { border-bottom:none; }
+
+/* ── 하단 바 ── */
+.bottom-bar {
+  margin-top:18px; background:#0B1C3D; border-radius:8px;
+  padding:14px 20px; display:flex; align-items:center;
+  justify-content:space-between; gap:16px;
+}
+.bb-left { font-size:13px; font-weight:700; color:#5DCAA5; line-height:1.4; }
+.bb-left span { display:block; color:rgba(255,255,255,0.5); font-size:10px; font-weight:400; margin-top:2px; }
+.bb-stats { display:flex; gap:16px; }
+.bb-stat { text-align:center; }
+.bb-stat .n { font-size:20px; font-weight:900; color:#5DCAA5; }
+.bb-stat .l { font-size:9px; color:rgba(255,255,255,0.4); margin-top:1px; }
+.bb-div { width:1px; background:rgba(255,255,255,0.1); }
+</style>
+</head>
+<body>
+
+<!-- ══ TOP HEADER ══ -->
+<div class="top-header">
+  <div class="th-left">
+    <div class="th-badge">지원사업 제출용 서비스 소개서</div>
+    <div class="th-name">수출 제조기업 <span>컴플라이언스·ESG</span><br>통합 운영 플랫폼</div>
+    <div class="th-summary">
+      인증·감사·바이어 Gap·ESG 데이터를 하나의 흐름으로 연결 —<br>
+      수작업 취합을 자동화하고 실무자가 판단·기획에 집중할 수 있는 B2B SaaS
+    </div>
+  </div>
+  <div class="th-right">
+    <div class="th-meta-row">
+      <span class="th-meta-tag blue">B2B SaaS</span>
+      <span class="th-meta-tag teal">웹 기반</span>
+      <span class="th-meta-tag amber">구독형</span>
+    </div>
+    <div class="th-current-task">
+      <strong>현재 수행 중인 정부지원 과제</strong>
+      예비창업패키지 (협약기간 26.04 ~ 26.12)<br>
+      핵심 기능 선행 구현 · 현업 실사용 검증 완료
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ 1. 서비스 개요 ══ -->
+<div class="sec">
+  <div class="sec-title">
+    <span class="sec-num">1</span>
+    <span class="sec-label">서비스 개요</span>
+  </div>
+  <div class="body-text" style="margin-bottom:10px;">
+    수출 중소·중견 제조기업은 바이어별로 다른 인증·감사 기준, 공장마다 다른 충족 현황,
+    강화되는 ESG 보고 의무를 <strong>수기·엑셀·이메일로 동시에 관리</strong>해야 하나 통합 운영 체계가 없다.
+    본 서비스는 <span class="hl-teal">Gap 식별 → Action 추적 → ESG 자동 분석</span>을 하나의 흐름으로 연결하여
+    <strong>실무자가 취합자가 아닌 판단자로 일할 수 있는 환경</strong>을 제공한다.
+  </div>
+  <div class="overview-flow">
+    <div class="of-step">
+      <div class="of-icon">🏭</div>
+      <div class="of-title">공장·바이어<br>등록</div>
+      <div class="of-sub">인증·감사·문서<br>통합 관리</div>
+    </div>
+    <div class="of-arrow">→</div>
+    <div class="of-step accent-step">
+      <div class="of-icon">🎯</div>
+      <div class="of-title">Gap 자동<br>식별</div>
+      <div class="of-sub">기준 비교<br>미충족 판정</div>
+    </div>
+    <div class="of-arrow">→</div>
+    <div class="of-step accent-step">
+      <div class="of-icon">✅</div>
+      <div class="of-title">Action<br>추적</div>
+      <div class="of-sub">담당·기한<br>완료 관리</div>
+    </div>
+    <div class="of-arrow">→</div>
+    <div class="of-step accent-step">
+      <div class="of-icon">📊</div>
+      <div class="of-title">ESG<br>자동 파싱</div>
+      <div class="of-sub">엑셀 업로드<br>단위환산 자동</div>
+    </div>
+    <div class="of-arrow">→</div>
+    <div class="of-step result-step">
+      <div class="of-icon">🤖</div>
+      <div class="of-title">AI 분석·<br>리포트</div>
+      <div class="of-sub">조치 제안<br>자동 번역</div>
+    </div>
+    <div class="of-arrow">→</div>
+    <div class="of-step result-step">
+      <div class="of-icon">📈</div>
+      <div class="of-title">대시보드<br>현황</div>
+      <div class="of-sub">실시간 파악<br>리포트 생성</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ 2. 주요 기능 ══ -->
+<div class="sec">
+  <div class="sec-title">
+    <span class="sec-num">2</span>
+    <span class="sec-label">서비스의 용도, 특징 및 주요 기능</span>
+  </div>
+  <div class="func-grid">
+    <div class="func-card">
+      <div class="func-icon">📋</div>
+      <div class="func-title">인증·감사·문서 통합 관리</div>
+      <div class="func-desc">공장별 인증서·감사보고서·시험성적서 등록. 만기 D-Day 자동 알림 및 주간 현황 리포트</div>
+      <span class="func-badge chip blue">선행 구현 완료</span>
+    </div>
+    <div class="func-card">
+      <div class="func-icon">🎯</div>
+      <div class="func-title">바이어 요구사항 Gap 자동 식별</div>
+      <div class="func-desc">바이어별 기준 vs 공장 충족 현황 자동 비교. 미충족 항목 즉시 시각화</div>
+      <span class="func-badge chip teal">1단계 개발</span>
+    </div>
+    <div class="func-card">
+      <div class="func-icon">✅</div>
+      <div class="func-title">Action 담당·기한·추적 연결</div>
+      <div class="func-desc">미충족 항목에 담당자·기한 지정. 완료 이력 자동 축적으로 반복 문제 방지</div>
+      <span class="func-badge chip teal">1단계 개발</span>
+    </div>
+    <div class="func-card">
+      <div class="func-icon">📊</div>
+      <div class="func-title">ESG 엑셀 자동 업로드·파싱</div>
+      <div class="func-desc">표준 양식 엑셀 업로드 → 단위환산·누적취합·연도별 비교 자동 처리</div>
+      <span class="func-badge chip teal">1단계 개발</span>
+    </div>
+    <div class="func-card">
+      <div class="func-icon">🤖</div>
+      <div class="func-title">AI 분석·조치 제안 (LangChain·RAG)</div>
+      <div class="func-desc">ESG 트렌드 분석 및 조치 제안. 바이어 리포트 자동 번역·요약</div>
+      <span class="func-badge chip amber">2단계 고도화</span>
+    </div>
+    <div class="func-card">
+      <div class="func-icon">📈</div>
+      <div class="func-title">통합 대시보드·리포트 자동 생성</div>
+      <div class="func-desc">공장별·바이어별 컴플라이언스 현황과 ESG 현황을 한 화면에 시각화</div>
+      <span class="func-badge chip teal">1단계 개발</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ 3. 차별성 ══ -->
+<div class="sec">
+  <div class="sec-title">
+    <span class="sec-num">3</span>
+    <span class="sec-label">경쟁 제품과의 차별성</span>
+  </div>
+  <div style="border:1px solid #E0DED6; border-radius:8px; overflow:hidden;">
+    <table class="diff-table">
+      <thead>
+        <tr>
+          <th style="width:220px; text-align:left;">기능 항목</th>
+          <th>일반 문서관리 툴</th>
+          <th class="hl">본 서비스 ★</th>
+          <th>ERP 컴플라이언스</th>
+          <th>ISO 컨설팅사</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>인증 만기 D-Day 자동 알림</td><td><span class="cr">✕</span></td><td><span class="ck">✓</span></td><td><span class="cp">△</span></td><td><span class="cr">✕</span></td></tr>
+        <tr><td>바이어 Gap 자동 식별·비교</td><td><span class="cr">✕</span></td><td><span class="ck">✓</span></td><td><span class="cr">✕</span></td><td><span class="cr">✕</span></td></tr>
+        <tr><td>Action 담당·기한·이력 추적</td><td><span class="cr">✕</span></td><td><span class="ck">✓</span></td><td><span class="cp">△</span></td><td><span class="cr">✕</span></td></tr>
+        <tr><td>ESG 엑셀 자동 파싱·단위환산</td><td><span class="cr">✕</span></td><td><span class="ck">✓</span></td><td><span class="cr">✕</span></td><td><span class="cr">✕</span></td></tr>
+        <tr><td>AI 분석·바이어 리포트 자동 번역</td><td><span class="cr">✕</span></td><td><span class="ck">✓</span></td><td><span class="cr">✕</span></td><td><span class="cr">✕</span></td></tr>
+        <tr><td>수출 중소·중견기업 맞춤 SaaS</td><td><span class="cr">✕</span></td><td><span class="ck">✓</span></td><td><span class="cr">✕ 대기업용</span></td><td><span class="cr">✕ 1회성</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div style="margin-top:8px; display:flex; gap:6px; flex-wrap:wrap;">
+    <span class="chip teal">비교→판정→Gap→Action→ESG 하나의 흐름</span>
+    <span class="chip blue">수출 중소·중견기업 전용 최적화</span>
+    <span class="chip amber">LangChain·RAG 기반 AI 분석</span>
+    <span class="chip gray">월 구독형 도입 비용 최소화</span>
+  </div>
+</div>
+
+
+<!-- ══ 4. 시장 파급효과 + 5. 기대효과 ══ -->
+<div class="two-col">
+
+  <div class="sec">
+    <div class="sec-title">
+      <span class="sec-num">4</span>
+      <span class="sec-label">시장 파급효과</span>
+    </div>
+    <div class="impact-cols">
+      <div class="impact-card" style="background:#EAF2FB; border-color:#B5D4F4;">
+        <div class="impact-num" style="color:#1C5FA8;">87,000<span style="font-size:14px;">+</span></div>
+        <div class="impact-label" style="color:#0B1C3D;">국내 수출 중소·중견 제조기업</div>
+        <div class="impact-desc">SR·QA·ESG 실무자 보유 기업 — 즉시 도입 가능 타깃 시장</div>
+      </div>
+      <div class="impact-card" style="background:#E1F5EE; border-color:#9FE1CB;">
+        <div class="impact-num" style="color:#0D7B6C;">2025~</div>
+        <div class="impact-label" style="color:#0B1C3D;">EU CSRD 공급망 ESG 의무화</div>
+        <div class="impact-desc">국내 수출기업 ESG 대응 의무 확산 → 수요 급증 예상</div>
+      </div>
+      <div class="impact-card" style="background:#FFF0EA; border-color:#F5C4B3;">
+        <div class="impact-num" style="color:#E85D24;">ESG</div>
+        <div class="impact-label" style="color:#0B1C3D;">제조 현장 ESG 데이터 자산</div>
+        <div class="impact-desc">이용 기업 증가 → 실데이터 축적 → 경쟁사 단기 복제 불가 진입장벽</div>
+      </div>
+      <div class="impact-card" style="background:#0B1C3D; border-color:#0B1C3D;">
+        <div class="impact-num" style="color:#5DCAA5;">글로벌</div>
+        <div class="impact-label" style="color:rgba(255,255,255,0.8);">공급망 서비스 확장</div>
+        <div class="impact-desc" style="color:rgba(255,255,255,0.55);">국내 → 해외 바이어 연결 → 글로벌 공급망 리스크 관리 플랫폼</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-title">
+      <span class="sec-num">5</span>
+      <span class="sec-label">기대 효과</span>
+    </div>
+    <div class="effect-row">
+      <div class="effect-item" style="background:#EAF2FB; border-color:#B5D4F4;">
+        <div class="eff-num" style="background:#1C5FA8; color:#fff;">1</div>
+        <div class="eff-text"><strong>실무자 업무 효율 30분~수 시간 절감</strong> — 현업 실사용 검증 완료 (만족도 조사 6명 전원 5점 만점)</div>
+      </div>
+      <div class="effect-item" style="background:#E1F5EE; border-color:#9FE1CB;">
+        <div class="eff-num" style="background:#0D7B6C; color:#fff;">2</div>
+        <div class="eff-text"><strong>인증 누락·감사 대응 실패 리스크 제거</strong> — D-Day 자동 알림으로 만기 사전 관리</div>
+      </div>
+      <div class="effect-item" style="background:#FFF0EA; border-color:#F5C4B3;">
+        <div class="eff-num" style="background:#E85D24; color:#fff;">3</div>
+        <div class="eff-text"><strong>ESG 보고 자동화</strong> — 수기 취합 → 엑셀 업로드 한 번으로 단위환산·비교·리포트 완성</div>
+      </div>
+      <div class="effect-item" style="background:#F5F4F0; border-color:#E0DED6;">
+        <div class="eff-num" style="background:#0B1C3D; color:#fff;">4</div>
+        <div class="eff-text"><strong>바이어 신뢰도 제고 · 거래 지속성 강화</strong> — Gap 사전 파악 및 후속조치 완료로 감사 대응 완성도 향상</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ══ 6. 수익모델 ══ -->
+<div class="sec">
+  <div class="sec-title">
+    <span class="sec-num">6</span>
+    <span class="sec-label">수익모델</span>
+  </div>
+  <div class="rev-cols">
+    <div class="rev-card" style="background:#0B1C3D; border-color:#0B1C3D;">
+      <span class="rev-tag" style="background:rgba(93,202,165,0.2); color:#5DCAA5;">핵심 수익 · 반복 매출</span>
+      <div class="rev-title" style="color:#fff;">기업 구독형 SaaS</div>
+      <div class="rev-price" style="color:#5DCAA5;">월 50만~</div>
+      <div class="rev-desc" style="color:rgba(255,255,255,0.55);">공장 수 기준 월정액<br>5공장 이하 50만 / 10공장 이하 90만</div>
+    </div>
+    <div class="rev-card" style="border-color:#B5D4F4;">
+      <span class="rev-tag" style="background:#EAF2FB; color:#1C5FA8;">초기 도입 1회성</span>
+      <div class="rev-title" style="color:#0B1C3D;">초기 셋업비</div>
+      <div class="rev-price" style="color:#1C5FA8;">데이터 이관</div>
+      <div class="rev-desc">도입 시 데이터 설정·이관<br>온보딩 지원 1회성 비용</div>
+    </div>
+    <div class="rev-card" style="border-color:#F5D88A;">
+      <span class="rev-tag" style="background:#FAEEDA; color:#C27B00;">2단계 확장</span>
+      <div class="rev-title" style="color:#0B1C3D;">AI 분석 모듈</div>
+      <div class="rev-price" style="color:#C27B00;">추가 과금</div>
+      <div class="rev-desc">ESG AI 분석·리포트 자동생성<br>바이어 리포트 번역 등 고도화</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ 7. 고객 프로파일 · 시장 규모 ══ -->
+<div class="sec">
+  <div class="sec-title">
+    <span class="sec-num">7</span>
+    <span class="sec-label">국내외 주요 고객 프로파일 및 예상 시장 규모</span>
+  </div>
+  <div class="customer-wrap">
+    <div class="cust-profile">
+      <div class="cust-profile-header">주요 고객 프로파일</div>
+      <div class="cust-profile-body">
+        <div class="cust-row">
+          <div class="cust-key">업종</div>
+          <div class="cust-val"><strong>수출 중소·중견 제조기업</strong> (전자·섬유·화학·금속·식품 등)</div>
+        </div>
+        <div class="cust-row">
+          <div class="cust-key">규모</div>
+          <div class="cust-val">해외 공장 3~20개, 복수 바이어 거래 기업</div>
+        </div>
+        <div class="cust-row">
+          <div class="cust-key">실사용자</div>
+          <div class="cust-val"><strong>SR·QA·ESG 실무 담당자</strong> (1~3명 소수 인력)</div>
+        </div>
+        <div class="cust-row">
+          <div class="cust-key">pain point</div>
+          <div class="cust-val">바이어 감사 대응·ESG 보고 의무·인증 만기 관리를 수작업으로 동시 처리</div>
+        </div>
+        <div class="cust-row">
+          <div class="cust-key">도입 근거</div>
+          <div class="cust-val"><strong>수출 중견기업 SR·QA 실무진 실사용 중</strong> — 만족도 조사 전원 5점 만점</div>
+        </div>
+        <div style="margin-top:8px;">
+          <div style="font-size:10px; font-weight:700; color:#6B6966; margin-bottom:4px;">주요 도입 업종</div>
+          <div class="chip-wrap">
+            <span class="chip blue">전자·전기</span><span class="chip blue">섬유·의류</span>
+            <span class="chip blue">화학·소재</span><span class="chip blue">금속·기계</span>
+            <span class="chip gray">식품·소비재</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="market-box">
+        <div>
+          <div class="mbox-title">국내 초기 타깃 시장</div>
+          <div class="mbox-num">87,000+</div>
+          <div class="mbox-desc">수출 중소·중견 제조기업 수<br>(SR·QA·ESG 실무자 보유)</div>
+        </div>
+        <div class="mbox-divider"></div>
+        <div>
+          <div class="mbox-title">월 구독 기준 시장 규모</div>
+          <div class="mbox-num" style="font-size:18px;">월 50만~90만</div>
+          <div class="mbox-desc">공장 수 기준 구독료<br>도입 1,000개사 기준 월 5억+ 규모</div>
+        </div>
+        <div class="mbox-divider"></div>
+        <div>
+          <div class="mbox-title">중장기 글로벌 확장</div>
+          <div class="mbox-num" style="font-size:18px; color:#fff;">동남아·유럽</div>
+          <div class="mbox-desc">글로벌 공급망 ESG 관리<br>해외 바이어 연결 서비스로 확장</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ 8. 경쟁상황 ══ -->
+<div class="sec">
+  <div class="sec-title">
+    <span class="sec-num">8</span>
+    <span class="sec-label">경쟁상황 및 경쟁우위</span>
+  </div>
+  <div class="two-col">
+    <div class="card">
+      <div class="card-header"><span class="card-dot cd-accent"></span>경쟁 현황</div>
+      <ul class="dot-list">
+        <li><strong>일반 문서관리 툴</strong> — 인증 보관만 가능. Gap 식별·Action 추적 없음</li>
+        <li><strong>대기업용 ERP 모듈</strong> — 도입 비용 수천만원 이상. 중소기업 현실 부적합</li>
+        <li><strong>ISO·SR 컨설팅사</strong> — 1회성 컨설팅. 지속 운영 체계 미제공</li>
+        <li><strong>ESG 전문 플랫폼</strong> — 대기업 공시 중심. 수출 중소기업 맞춤 없음</li>
+      </ul>
+    </div>
+    <div class="card-dark">
+      <div class="card-header" style="color:#5DCAA5;"><span class="card-dot" style="background:#5DCAA5;"></span>핵심 경쟁우위</div>
+      <ul class="dot-list">
+        <li style="border-color:rgba(255,255,255,0.08); color:rgba(255,255,255,0.75);"><strong style="color:#5DCAA5;">통합 흐름</strong> Gap→Action→ESG 단일 연결 경쟁 제품 없음</li>
+        <li style="border-color:rgba(255,255,255,0.08); color:rgba(255,255,255,0.75);"><strong style="color:#5DCAA5;">실사용 검증</strong> 현업 SR·QA 실무진 사용 중 (선행 구현 완료)</li>
+        <li style="border-color:rgba(255,255,255,0.08); color:rgba(255,255,255,0.75);"><strong style="color:#5DCAA5;">ESG 데이터 자산</strong> 이용 기업 증가 → 데이터 진입장벽 형성</li>
+        <li style="border-color:rgba(255,255,255,0.08); color:rgba(255,255,255,0.75);"><strong style="color:#5DCAA5;">월 구독 SaaS</strong> 초기 도입 부담 없이 즉시 사용 가능</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ 9. 판매 전략 ══ -->
+<div class="sec">
+  <div class="sec-title">
+    <span class="sec-num">9</span>
+    <span class="sec-label">개발완료 후 판매전략</span>
+  </div>
+  <div class="sales-steps">
+    <div class="sales-step">
+      <div class="ss-line">
+        <div class="ss-dot" style="background:#1C5FA8;"></div>
+        <div class="ss-connector" style="background:#B5D4F4;"></div>
+      </div>
+      <div class="ss-body" style="background:#EAF2FB; border-color:#B5D4F4;">
+        <span class="ss-period chip blue">26.04~26.10</span>
+        <div class="ss-title">MVP 완성 · 파일럿 무료 제공</div>
+        <div class="ss-desc">현업 실무자 대상 파일럿 무료 제공 → 실데이터 수집 → 기능 보완. 기존 실사용 기업 레퍼런스 확보</div>
+      </div>
+    </div>
+    <div class="sales-step">
+      <div class="ss-line">
+        <div class="ss-dot" style="background:#0D7B6C;"></div>
+        <div class="ss-connector" style="background:#9FE1CB;"></div>
+      </div>
+      <div class="ss-body" style="background:#E1F5EE; border-color:#9FE1CB;">
+        <span class="ss-period chip teal">26.10~26.12</span>
+        <div class="ss-title">카테고리별 수출기업 방문·시연 영업</div>
+        <div class="ss-desc">업종별 수출 중소·중견기업 SR·QA·ESG 담당자 메일·팩스·방문 컨택 → 서비스 시연 → 유료 전환 협의</div>
+      </div>
+    </div>
+    <div class="sales-step">
+      <div class="ss-line">
+        <div class="ss-dot" style="background:#C27B00;"></div>
+        <div class="ss-connector" style="background:#F5D88A;"></div>
+      </div>
+      <div class="ss-body" style="background:#FAEEDA; border-color:#F5D88A;">
+        <span class="ss-period chip amber">27.01~27.06</span>
+        <div class="ss-title">구독 고객 확대 · AI 모듈 고도화</div>
+        <div class="ss-desc">파일럿 레퍼런스 기반 동종 업계 확산 → AI 분석 모듈 추가 과금 → 구독 매출 확대 · 시드 투자 IR</div>
+      </div>
+    </div>
+    <div class="sales-step">
+      <div class="ss-line">
+        <div class="ss-dot" style="background:#0B1C3D;"></div>
+        <div class="ss-connector" style="display:none;"></div>
+      </div>
+      <div class="ss-body" style="background:#F0F2F8; border-color:#C5CBE0;">
+        <span class="ss-period chip gray">중장기</span>
+        <div class="ss-title">글로벌 공급망 서비스 확장</div>
+        <div class="ss-desc">ESG 데이터 자산 기반 산업별 벤치마크 → 해외 바이어 연결 서비스 → 글로벌 B2B SaaS 플랫폼</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ 10. 팀 구성 ══ -->
+<div class="sec">
+  <div class="sec-title">
+    <span class="sec-num">10</span>
+    <span class="sec-label">조직/팀 구성현황 및 사업화 적합도</span>
+  </div>
+  <div class="team-wrap">
+    <div class="team-card">
+      <div class="team-avatar" style="background:#1C5FA8;">대</div>
+      <div class="team-name">대표 / 기획</div>
+      <span class="team-role chip blue">사업 총괄</span>
+      <ul class="team-items">
+        <li>수출 중견기업 SR·QA 실무 경험</li>
+        <li>서비스 기획·요구사항 정의</li>
+        <li>현업 고객 네트워크 보유</li>
+        <li>파일럿 기업 직접 발굴·운영</li>
+      </ul>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar" style="background:#0D7B6C;">개</div>
+      <div class="team-name">백엔드 개발 (외주)</div>
+      <span class="team-role chip teal">기술 개발</span>
+      <ul class="team-items">
+        <li>API·DB 설계·Gap 비교 로직</li>
+        <li>ESG 파싱 엔진 구현</li>
+        <li>클라우드(AWS) 인프라 운영</li>
+        <li>LangChain·RAG AI 연동</li>
+      </ul>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar" style="background:#C27B00;">프</div>
+      <div class="team-name">프론트엔드 개발 (외주)</div>
+      <span class="team-role chip amber">UI/UX</span>
+      <ul class="team-items">
+        <li>공장·바이어·인증 화면 구현</li>
+        <li>대시보드·리포트 UI 개발</li>
+        <li>사용성 검증 및 보완</li>
+        <li>반응형 웹 최적화</li>
+      </ul>
+    </div>
+  </div>
+  <div style="margin-top:8px; padding:10px 14px; background:#F5F4F0; border-radius:7px; font-size:11px; color:#3D3D3A; line-height:1.6;">
+    <strong style="color:#0B1C3D;">사업화 적합도:</strong>
+    대표는 수출 중견기업 SR·QA 실무 경험을 바탕으로 고객 페인포인트를 정확히 파악하고 있으며,
+    핵심 기능을 선행 구현하여 현업 실무자 대상 실사용 검증(만족도 전원 5점)을 완료하였다.
+    외주 개발팀과의 협업 구조로 8개월 내 MVP 완성이 가능하며, 기존 SR·QA 실무 네트워크를 통해
+    초기 고객 확보 경로가 명확하다.
+  </div>
+</div>
+
+
+<!-- ── 하단 바 ── -->
+<div class="bottom-bar">
+  <div class="bb-left">
+    수출 제조기업 생존 필수 인프라 · ESG 데이터 자산 기반 확장형 SaaS
+    <span>현업 SR·QA 실무진 실사용 검증 완료 · 만족도 전원 5점 만점 · 전원 재사용 의향</span>
+  </div>
+  <div class="bb-stats">
+    <div class="bb-stat"><div class="n">6명</div><div class="l">실사용 검증</div></div>
+    <div class="bb-div"></div>
+    <div class="bb-stat"><div class="n">5.0점</div><div class="l">평균 만족도</div></div>
+    <div class="bb-div"></div>
+    <div class="bb-stat"><div class="n">87,000+</div><div class="l">타깃 기업</div></div>
+    <div class="bb-div"></div>
+    <div class="bb-stat"><div class="n">월 50만~</div><div class="l">구독 시작가</div></div>
+  </div>
+</div>
+
+</body>
+</html>
