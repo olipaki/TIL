@@ -1,5 +1,5 @@
 def main():
-    print("Hello from langchain-prac!")
+    print("Hello from langchain!")
 
 
 if __name__ == "__main__":
