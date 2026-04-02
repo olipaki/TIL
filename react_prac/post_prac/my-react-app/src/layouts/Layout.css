@@ -1,0 +1,20 @@
+/* src/layouts/Layout.css */
+nav {
+  display: flex;
+  gap: 16px;
+}
+
+nav a.active {
+  color: #1e293b;
+  font-weight: bold;
+}
+
+nav a.active {
+  color: #0f172a;
+  font-weight: bold;
+}
+
+/* 다크모드일 때 활성화된 글자색 변경 */
+.dark nav a.active {
+  color: #c6cee0;
+}
